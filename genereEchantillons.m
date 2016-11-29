@@ -15,11 +15,13 @@ soundsc(x,fe+100000);
 nbh=4;
 note = genereEchPeriod(N,fe,f0,nbh);
 genereEch(note,N,fe,f0,N_rep);
+soundsc(note,fe);
 
 %%
 nbh=0;
 note2=genereEchPeriod(N,fe,f0,nbh);
 genereEch(note2,N,fe,f0,N_rep);
+soundsc(note2,fe);
 
 
 
