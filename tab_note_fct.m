@@ -1,4 +1,4 @@
-function [ tab_note ] = tab_note_fct( input_args )
+function [ tab_note ] = tab_note_fct()
 %TAB_NOTE_FCT Summary of this function goes here
 %   Detailed explanation goes here
 tab_note.C3=130.8;
