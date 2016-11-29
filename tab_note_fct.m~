@@ -1,0 +1,21 @@
+function [ tab_note ] = tab_note_fct( input_args )
+%TAB_NOTE_FCT Summary of this function goes here
+%   Detailed explanation goes here
+tab_note.C3=130.8;
+tab_note.C3d=1;
+tab_note.=130.8;
+tab_note.C4=130.8;
+tab_note.C4d=130.8;
+tab_note.C5=130.8;
+tab_note.C5d=130.8;
+tab_note.C6=130.8;
+tab_note.C6d=130.8;
+tab_note.C7=130.8;
+tab_note.C7d=130.8;
+tab_note.C=130.8;
+tab_note.C3=130.8;
+tab_note.C3=130.8;
+
+
+end
+

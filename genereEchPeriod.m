@@ -6,8 +6,5 @@ amp_h = [1,0.7,0.95,0.75,0.6,0.65,0.65,0.5,...
 
 for i =1:nbh
     note = note +amp_h(i)*sin(2*pi*(i+1)*f0/fe*N_v);
-
-
-
 end
 
