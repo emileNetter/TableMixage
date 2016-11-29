@@ -2,26 +2,23 @@ clear global;
 close all;
 
 %%Question 1 
-
-N=11025;
-N_rep = 1000;
-f0 = 880;
+N= 11025;
 fe=44100;
-N_v = 0:N-1;
-x = sin(2*pi*f0*N_v/fe);
+f0=880;
+N_rep=1000;
+fct=sin(2*pi*f0/fe*N_v);
 
-plot(N_v,x);
-xlim([0 N_rep-1]); %limite valeurs de x
-xlabel('Numéro échantillon');
-ylabel('s(t)');
+x=genereEch(fct,N,fe,f0,N_rep);
+soundsc(x,fe+100000);
 
-Nfft = 1024;
-X= fft(x,Nfft);
-figure,plot(0:Nfft-1,abs(X));
-title('En fonction du numéro d'echantillon');
+%%
+nbh=4;
+note = genereEchPeriod(N,fe,f0,nbh);
+genereEch(note,N,fe,f0,N_rep);
 
-axe_f=-fe/2:fe/Nfft:fe/2-fe/Nfft;
-figure,plot(axe_f,abs(X));
-title('En fonction du numéro d\'echantillon');
+%%
+note2=genereEchPeriod(N,fe,f0,nbh
+
+
 
 
