@@ -1,6 +1,6 @@
-function [x] = genereEch (N,fe,f0,N_rep)
+function [x] = genereEch (x,N,fe,f0,N_rep)
 N_v = 0:N-1;
-x=sin(2*pi*f0/fe*N_v);
+
 Nfft = 4096;
 X=fft(x,Nfft);
 
