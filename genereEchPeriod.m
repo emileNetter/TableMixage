@@ -1,4 +1,4 @@
-function [ note ] = genereEchPeriod(N,fe,f0,nbh )
+function [ note ] = genereEchPeriod(N,f0,fe,nbh )
 N_v = 0:N-1;
 note = sin(2*pi*f0/fe*N_v);
 amp_h = [1,0.7,0.95,0.75,0.6,0.65,0.65,0.5,...
