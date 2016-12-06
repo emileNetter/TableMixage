@@ -1,4 +1,4 @@
-function [x] = genereEch (x,N,fe,f0,N_rep)
+function [x] = genereEch (x,N,fe,N_rep)
 N_v = 0:N-1;
 Nfft = 4096;
 X=fft(x,Nfft);

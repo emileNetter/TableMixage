@@ -9,7 +9,7 @@ N_rep=1000;
 N_v=0:N-1;
 fct=sin(2*pi*f0/fe*N_v);
 
-x=genereEch(fct,N,fe,f0,N_rep);
+x=genereEch(fct,N,fe,N_rep);
 soundsc(x,fe+100000);
 
 %% harmoniques
@@ -39,6 +39,9 @@ for i=1:taille_m
 end
 
 soundsc(morceau,fe);
+%%
+LoadFile('mozart.mat');
+
 
 
 

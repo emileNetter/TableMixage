@@ -1,0 +1,9 @@
+function [] = LoadFile( filename )
+%LOADFILE Summary of this function goes here
+%   Detailed explanation goes here
+myFile=load(filename);
+y=length(myFile.mozart);
+Y = fft(myFile.mozart,y);
+genereEch(myFile.mozart,y,myFile.fe
+end
+
