@@ -40,7 +40,7 @@ end
 
 soundsc(morceau,fe);
 %%
-LoadFile('mozart.mat');
+LoadFile('mozart');
 
 
 

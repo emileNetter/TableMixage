@@ -1,25 +1,29 @@
 function [] = LoadFile( filename )
 %LOADFILE Summary of this function goes here
 %   Detailed explanation goes here
-myFile=load(filename);
-y=length(myFile.mozart);
-%Y = fft(myFile.mozart,y);
-%genereEch(myFile.mozart,y,myFile.fe,5000);
-N_v = 0:y-1;
+myFile=eval(['load(''' filename '.mat'')']);
+mylength=length(eval(['myFile.' filename]));
+
+N_v = 0:mylength-1;
 Nfft = 256;
-%X=fft(myFile.mozart,Nfft);
 
-figure, 
-subplot 211
-%représentation temporelle
-plot(N_v,myFile.mozart);
-xlim([0 5000-1]); %limite valeurs de x
-xlabel('Numéro échantillon');
-ylabel('s(t)');
+% file=eval(['myFile.' filename]);
+% figure, 
+% subplot 211
+% %représentation temporelle
+% plot(N_v,file);
+% xlim([0 5000-1]); %limite valeurs de x
+% xlabel('Numéro échantillon');
+% ylabel('s(t)');
 
-subplot 212
-var=256;
-spectrogram(myFile.mozart,rectwin(var),var/2,Nfft,myFile.fe,'yaxis');
-%soundsc(myFile.mozart);
+% subplot 212
+% var=256;
+% spectrogram(file,rectwin(var),var/2,Nfft,myFile.fe,'yaxis');
+
+
+mozart=addToMozart('Instru1',myFile,300);
+
+
+soundsc(mozart.mozart,mozart.fe);
 end
 
