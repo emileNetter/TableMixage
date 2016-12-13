@@ -1,4 +1,4 @@
-function [] = LoadFile( filename )
+function [mozartFinal] = LoadFile( filename )
 %LOADFILE Summary of this function goes here
 %   Detailed explanation goes here
 myFile=eval(['load(''' filename '.mat'')']);
@@ -31,9 +31,9 @@ mozart=addToMozart('Instru2',mozart,264600);
 mozart=addToMozart('Instru3',mozart,308700);
 mozart=addToMozart('Instru4',mozart,312800);
 
-res = mozart.mozart .* hamming(length(mozart.mozart));
-wvtool(res);
+mozartFinal = mozart.mozart .* hamming(length(mozart.mozart));
+wvtool(mozartFinal); % sortie graphique amplitude et fréquence
 
-soundsc(res,mozart.fe);
+%soundsc(mozartFinal,mozart.fe);
 end
 

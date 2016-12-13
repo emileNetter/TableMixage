@@ -40,7 +40,17 @@ end
 
 soundsc(morceau,fe);
 %%
-LoadFile('mozart');
+mozartFinal = LoadFile('mozart');
+
+%% Génération du bruit
+
+sigma = 0.25;
+moy = 0;
+bruit = moy + sigma*randn(1,length(mozartFinal));
+bruit = bruit';
+signalBruite = mozartFinal + bruit ;
+soundsc(signalBruite,fe);
+
 
 
 
