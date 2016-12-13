@@ -1,7 +1,7 @@
 # Projet Signal
 ## Table de Mixage
 
-Projet de signal du second semestre de [l'ENSC]("www.ensc.fr") (Ecole Nationale Supérieure de Cognitique) de Bordeaux. Le but du projet est de créer une table de mixage, pour pratiquer le traitement du signal, projet entièremenent réalisé avec Matlab.
+Projet de signal du second semestre de [l'ENSC](http://www.ensc.fr) (Ecole Nationale Supérieure de Cognitique) de Bordeaux. Le but du projet est de créer une table de mixage, pour pratiquer le traitement du signal, projet entièremenent réalisé avec Matlab.
 
 Le sujet du projet est disponible [ici](/projetS3_2016_2017_ENSC.pdf)
 
