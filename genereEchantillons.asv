@@ -2,7 +2,7 @@ clear global;
 close all;
 
 %%Question 1 
-N= 11025;
+N= 860000;
 fe=44100;
 f0=880;
 N_rep=1000;
@@ -39,21 +39,20 @@ for i=1:taille_m
 end
 
 soundsc(morceau,fe);
+
+
+%%
+
+fct = fct' .* hamming(length(fct)); % fade in fade out sinusoïde
+wvtool(fct);
+
 %%
 mozartFinal = LoadFile('mozart');
 
 %% Génération du bruit
-
-sigma = 0.25;
-moy = 0;
-bruit = moy + sigma*randn(1,length(mozartFinal));
+mozartFinal = mozartFinal(1:length(fct));
+sigma = 0.05;
+bruit = fct;
 bruit = bruit';
-signalBruite = mozartFinal + bruit ;
-soundsc(signalBruite);
-
-
-
-
-
-
-
+signalBruite = mozartFinal' + fct ;
+soundsc(signalBruite,fe);
