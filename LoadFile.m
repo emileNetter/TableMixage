@@ -31,7 +31,9 @@ mozart=addToMozart('Instru2',mozart,264600);
 mozart=addToMozart('Instru3',mozart,308700);
 mozart=addToMozart('Instru4',mozart,312800);
 
+res = mozart.mozart .* hamming(length(mozart.mozart));
+wvtool(res);
 
-soundsc(mozart.mozart,mozart.fe);
+soundsc(res,mozart.fe);
 end
 
