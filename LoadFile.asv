@@ -32,8 +32,8 @@ mozart=addToMozart('Instru3',mozart,308700);
 mozart=addToMozart('Instru4',mozart,312800);
 
 mozartFinal = mozart.mozart .* hamming(length(mozart.mozart));
-wvtool(mozartFinal); % sortie graphique amplitude et fréquence
+wvtool(res);
 
-%soundsc(mozartFinal,mozart.fe);
+soundsc(mozartFinal,mozart.fe);
 end
 

@@ -42,6 +42,7 @@ soundsc(morceau,fe);
 
 
 %%
+
 fct = fct' .* hamming(length(fct)); % fade in fade out sinusoïde
 wvtool(fct);
 
@@ -53,6 +54,5 @@ mozartFinal = mozartFinal(1:length(fct));
 sigma = 0.05;
 bruit = fct;
 bruit = bruit';
-signalBruite = mozartFinal + fct ;
+signalBruite = mozartFinal' + fct ;
 soundsc(signalBruite,fe);
-
