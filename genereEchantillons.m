@@ -52,3 +52,7 @@ mozartFinal = LoadFile('mozart');
 mozart=load ('mozart.mat');
 mozartBruite = bruiteSignal('Tonal',mozart.mozart,100,5);
 soundsc(mozartBruite,44100);
+%%
+g=0.6;
+H = [1 0 0 0 0 g/1];
+[h,w] = freqz(H);
