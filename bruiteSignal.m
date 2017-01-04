@@ -1,18 +1,19 @@
-function [ signalBruite ] = bruiteSignal( typeBruit, signal, db )
-
-Ps = signal' * signal;
-Pb = bruit' * bruit ;
-sigma = sqrt((Ps/Pb)
-b = sigma * bruit;
-RSB = Ps/Pb;
+function [ signalBruite ] = bruiteSignal( typeBruit, signal,fe, RSBdb )
 
     if typeBruit STRCMP 'Blanc'
-        bruit = sigma*randn(1,length(signal));
+        bruit = randn(1,length(signal));
     
     elseif typeBruit STRCMP 'Tonal'
+        vectN=1:length(signal);
         f0 = 880;
-        bruit = sin(2*pi*f0*t);
+        bruit = sin(2*pi*f0*vectN/fe);
         
-    end       
+    end     
+    Ps = signal' * signal;
+    Pb = bruit' * bruit ;
+    RSB = Ps/Pb;
+    sigma = sqrt(RSB*10^(-RSBdb/10));
+       
+    signalBruite = signal'+sigma*bruit;
 end
 
