@@ -1,9 +1,9 @@
 function [ signalBruite ] = bruiteSignal( typeBruit, signal,fe, RSBdb )
 
-    if typeBruit STRCMP 'Blanc'
+    if typeBruit == 'Blanc'
         bruit = randn(1,length(signal));
     
-    elseif typeBruit STRCMP 'Tonal'
+    elseif typeBruit == 'Tonal'
         vectN=1:length(signal);
         f0 = 880;
         bruit = sin(2*pi*f0*vectN/fe);

@@ -49,10 +49,7 @@ wvtool(fct);
 mozartFinal = LoadFile('mozart');
 
 %% Génération du bruit
-mozartFinal = mozartFinal(1:length(fct));
-sigma = 0.05;
-bruit = fct;
-bruit = bruit';
-signalBruite = mozartFinal + fct ;
-soundsc(signalBruite,fe);
+mozartBruite = bruiteSignal('Blanc',mozartFinal,100,5);
+soundsc(mozartBruite,fe);
+
 
