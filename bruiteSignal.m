@@ -9,11 +9,11 @@ function [ signalBruite ] = bruiteSignal( typeBruit, signal,fe, RSBdb )
         bruit = sin(2*pi*f0*vectN/fe);
         
     end     
+    
     Ps = signal' * signal;
-    Pb = bruit' * bruit ;
+    Pb = bruit * bruit' ;
     RSB = Ps/Pb;
-    sigma = sqrt(RSB*10^(-RSBdb/10));
-       
+    sigma = sqrt(RSB*10^(-RSBdb/10));      
     signalBruite = signal'+sigma*bruit;
 end
 
