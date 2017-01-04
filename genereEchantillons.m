@@ -56,3 +56,4 @@ soundsc(mozartBruite,44100);
 g=0.6;
 H = [1 0 0 0 0 g/15];
 freqz(H,1,1000);
+zplane(H,1,1000)
