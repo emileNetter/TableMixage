@@ -1,7 +1,7 @@
 clear global;
 close all;
 
-%%Question 1 
+%%Etape 1 : on génère une note on affiche le temporel et frequentiel
 N= 860000;
 fe=44100;
 f0=880;
@@ -13,19 +13,21 @@ x=genereEch(fct,N,fe,N_rep);
 soundsc(x,fe+100000);
 
 %% harmoniques
-nbh=4;
+nbh=24;
+
 note = genereEchPeriod(N,fe,f0,nbh);
-genereEch(note,N,fe,f0,N_rep);
+genereEch(note,N,fe,N_rep);
 soundsc(note,fe);
 
 %% fondamental
 
 nbh=0;
 note2=genereEchPeriod(N,fe,f0,nbh);
-genereEch(note2,N,fe,f0,N_rep);
+genereEch(note2,N,fe,N_rep);
 soundsc(note2,fe);
 
-%%
+%% On génère une mélodie
+fe=44100;
 liste_notes = {'C4','C4','C4','D4','E4','D4','C4','E4', ...
     'D4','D4','C4','D4','D4','D4','D4','A3','B3','D4', ...
     'C4','B3','A3','G3'};
@@ -39,7 +41,6 @@ for i=1:taille_m
 end
 
 soundsc(morceau,fe);
-
 
 %% Etape 2 : fading in fading out
 load('mozart.mat');
@@ -57,10 +58,28 @@ plot(mozartEtComposantes);
 
 %% Etape 3, bruitage
 load ('mozart.mat');
-mozartBruite = bruiteSignal('Tonal',mozart,5000,2); %on puet choisir entre Tonal et Blanc pour le type de bruit
+mozartBruite = bruiteSignal('Tonal',mozart,5000,2); %on peut choisir entre Tonal et Blanc pour le type de bruit
 soundsc(mozartBruite,44100);
-%% Etape 4
+%% Etape 4 decalage
 
+load('mozart.mat');
+fe=44100;
+tau = 2;
+g=0.6;
+M=1;
+k0=floor(tau*fe);
+
+h=fonctionDeTransfert(g,M,k0);
+subplot(2,1,1);
+%freqz(h,1,1000);
+subplot(2,1,2);
+%zplane(h,1);
+
+y=filter(h,1,mozart);
+plot(y);
+soundsc(y,44100);
+
+%% etape 5 effet de reverb
 load('mozart.mat');
 fe=44100;
 tau = 1;
@@ -70,10 +89,11 @@ k0=floor(tau*fe);
 
 h=fonctionDeTransfert(g,M,k0);
 subplot(2,1,1);
-freqz(h,1,1000);
+%freqz(1,h,1000);
 subplot(2,1,2);
-zplane(h,1);
+%zplane(h,1);
 
-y=filter(h,1,mozart);
+y=filter(1,h,mozart);
 soundsc(y,44100);
+
 
