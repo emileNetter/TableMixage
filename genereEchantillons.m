@@ -55,5 +55,14 @@ soundsc(mozartBruite,44100);
 %% Etape 4
 
 g=0.6;
-H = [1 0 0 0 0 g/15];
-freqz(H,1,1000);
+M=1;
+k0=4;
+h=fonctionDeTransfert(g,M,k0);
+subplot(2,1,1);
+freqz(h,1,1000);
+subplot(2,1,2);
+zplane(h,1);
+
+y=filter(h,1 ,mozart.mozart);
+soundsc(y,44100);
+
