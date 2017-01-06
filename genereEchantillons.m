@@ -41,18 +41,19 @@ end
 soundsc(morceau,fe);
 
 
-%%
+%% Fade In
 fct = fct' .* hamming(length(fct)); % fade in fade out sinusoïde
 wvtool(fct);
 
 %%
 mozartFinal = LoadFile('mozart');
 
-%% Bruit
+%% Etape 3, bruitage
 mozart=load ('mozart.mat');
 mozartBruite = bruiteSignal('Tonal',mozart.mozart,100,5);
 soundsc(mozartBruite,44100);
-%%
+%% Etape 4
+
 g=0.6;
 H = [1 0 0 0 0 g/15];
 freqz(H,1,1000);
